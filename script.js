@@ -37,3 +37,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Dropdown toggle functionality
+const dropdownToggle = document.getElementById('dropdownToggle');
+const navbarLinks = document.querySelector('.navbar-links');
+
+dropdownToggle.addEventListener('click', function () {
+  navbarLinks.classList.toggle('active');
+  this.classList.toggle('active');
+});
+
+// Close dropdown when a link is clicked
+const navbarLinksList = document.querySelectorAll('.navbar-links a');
+navbarLinksList.forEach(link => {
+  link.addEventListener('click', () => {
+    navbarLinks.classList.remove('active');
+    dropdownToggle.classList.remove('active');
+  });
+});
