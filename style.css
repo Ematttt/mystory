@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
 @import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
+:root {
+  --primary-color: #0A2E36;
+  --secondary-color: #1D84B5;
+  --accent-color: #BFDDE8;
+  --background-color: #E1F5FE;
+  --text-color: #FFFFFF;
+  --heading-color: #083A4B;
+  --hover-color: rgba(255, 255, 255, 0.2);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --overlay-color: rgba(10, 25, 47, 0.7);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +23,7 @@
 
 h1, h2, h3 {
   font-family: 'Merriweather', serif;
-  color: white; /* Deeper ocean blue for better contrast */
+  color: var(--text-color);
 }
 
 a {
@@ -25,8 +37,8 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background-color: #0A2E36;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 10px var(--shadow-color);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -35,7 +47,7 @@ a {
 .navbar-title {
   font-size: 24px;
   font-weight: bold;
-  color: #FFFFFF;
+  color: var(--text-color);
 }
 
 .navbar-links {
@@ -45,12 +57,46 @@ a {
 
 .navbar-links a {
   font-size: 16px;
-  color: #BFDDE8;
+  color: var(--accent-color);
   transition: color 0.3s ease;
 }
 
 .navbar-links a:hover {
-  color: #1D84B5;
+  color: var(--secondary-color);
+}
+
+.dropdown-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.dropdown-toggle img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 20px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .dropdown-toggle {
+    display: block;
+  }
 }
 
 /* Hero Section */
@@ -62,7 +108,7 @@ a {
   align-items: center;
   text-align: center;
   overflow: hidden;
-  color: #FFFFFF;
+  color: var(--text-color);
 }
 
 .hero-video {
@@ -82,7 +128,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 25, 47, 0.7);
+  background: var(--overlay-color);
 }
 
 .hero-content {
@@ -96,20 +142,20 @@ a {
   font-size: 64px;
   margin-bottom: 20px;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 10px var(--shadow-color);
 }
 
 .hero p {
   font-size: 22px;
   margin-bottom: 30px;
-  color: white;
+  color: var(--text-color);
   line-height: 1.6;
 }
 
 .cta-button {
   padding: 15px 30px;
-  background: #1D84B5;
-  color: #FFFFFF;
+  background: var(--secondary-color);
+  color: var(--text-color);
   border-radius: 5px;
   font-size: 18px;
   border: none;
@@ -118,7 +164,7 @@ a {
 
 .cta-button:hover {
   transform: scale(1.05);
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 0px 15px var(--hover-color);
 }
 
 .social-icons {
@@ -134,17 +180,17 @@ a {
   justify-content: center;
   width: 45px;
   height: 45px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--hover-color);
   border-radius: 50%;
   font-size: 22px;
-  color: white;
+  color: var(--text-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .social-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 10px var(--hover-color);
+  background: var(--hover-color);
 }
 
 /* Responsive Design */
@@ -159,6 +205,7 @@ a {
 
   .cta-button {
     font-size: 16px;
+  padding: 10px 20px;
   }
 
   .social-btn {
@@ -168,19 +215,18 @@ a {
   }
 }
 
-
 /* About Section */
 .about {
-  padding: 5% 5%; /* Flexible padding based on screen size */
+  padding: 5% 5%;
   text-align: center;
-  background-color: #E1F5FE;
+  background-color: var(--background-color);
   height: 100vh;
 }
 
 .about h2 {
   font-size: 2.5rem;
   margin-bottom: 2%;
-  color: #083A4B;
+  color: var(--heading-color);
   text-align: center;
 }
 
@@ -189,19 +235,18 @@ a {
   margin: 0 auto;
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #0A2E36;
+  color: var(--primary-color);
   text-align: justify;
 }
 
 .about-content p {
-  margin-bottom: 3%; /* Adds spacing between paragraphs */
+  margin-bottom: 3%;
 }
-
 
 /* Blog Section */
 .blog {
   padding: 80px 50px;
-  background-color: #BFDDE8;
+  background-color: var(--accent-color);
   text-align: center;
   min-height: 100vh;
   display: flex;
@@ -210,25 +255,22 @@ a {
   justify-content: center;
 }
 
-/* Blog Heading */
 .blog h2 {
   font-size: 36px;
   margin-bottom: 40px;
-  color: #083A4B;
+  color: var(--heading-color);
 }
 
-/* Blog Posts Grid */
 .blog-posts {
   display: flex;
   justify-content: center;
   gap: 30px;
-  flex-wrap: wrap; /* Allows stacking when needed */
+  flex-wrap: wrap;
   max-width: 100%;
 }
 
-/* Blog Post Container */
 .post {
-  flex: 0 0 400px; /* Fixed size for larger screens */
+  flex: 0 0 400px;
   width: 400px;
   height: 400px;
   perspective: 1000px;
@@ -237,10 +279,9 @@ a {
 
 .post:hover {
   transform: scale(1.05);
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 15px var(--shadow-color);
 }
 
-/* Inner Flip Container */
 .post-inner {
   width: 100%;
   height: 100%;
@@ -249,7 +290,6 @@ a {
   transition: transform 0.6s ease;
 }
 
-/* Front and Back Styling */
 .post-front, .post-back {
   width: 100%;
   height: 100%;
@@ -257,20 +297,18 @@ a {
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align content to top */
+  justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  background-color: var(--text-color);
   padding: 20px;
 }
 
-/* Front Side */
 .post-front {
   transform: rotateY(0deg);
 }
 
-/* Back Side */
 .post-back {
   transform: rotateY(180deg);
   padding: 25px;
@@ -282,15 +320,13 @@ a {
   text-align: justify;
 }
 
-/* Post Title */
 .post h3 {
   font-size: 20px;
-  color: #083A4B;
+  color: var(--heading-color);
   margin-bottom: 15px;
   text-align: center;
 }
 
-/* Post Image */
 .post-image {
   width: 76%;
   height: 76%;
@@ -299,43 +335,40 @@ a {
   margin-bottom: 10px;
 }
 
-/* Read More / Read Less Buttons */
 .read-more, .read-less {
   position: absolute;
   bottom: 20px;
   right: 20px;
   padding: 5px;
-  color: #1D84B5;
+  color: var(--secondary-color);
   text-decoration: none;
   font-weight: bold;
   transition: background 0.6s ease;
 }
 
 .read-more:hover, .read-less:hover {
-  color: #083A4B;
+  color: var(--heading-color);
 }
 
-/* Flip Effect */
 .post.flipped .post-inner {
   transform: rotateY(180deg);
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) { 
+@media (max-width: 1200px) {
   .blog-posts {
-    justify-content: flex-start; /* Align to the left for better scrolling */
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    justify-content: flex-start;
+    overflow-x: auto;
     padding-bottom: 10px;
   }
 
   .post {
-    flex: 0 0 350px; /* Reduce post size slightly */
+    flex: 0 0 350px;
     width: 350px;
     height: 350px;
   }
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .blog-posts {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -345,7 +378,7 @@ a {
   }
 
   .post {
-    flex: 0 0 320px; /* Slightly smaller posts */
+    flex: 0 0 320px;
     width: 320px;
     height: 320px;
     scroll-snap-align: center;
@@ -354,22 +387,21 @@ a {
 
 @media (max-width: 480px) {
   .blog-posts {
-    flex-direction: column; /* Stack posts vertically */
+    flex-direction: column;
     align-items: center;
     overflow-x: hidden;
   }
 
   .post {
-    width: 90%; /* Full width for small screens */
+    width: 90%;
     height: 350px;
   }
 }
 
-
 /* Gallery Section */
 .gallery {
   padding: 20px;
-  background-color: #E1F5FE; /* Dark background */
+  background-color: var(--background-color);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -378,15 +410,13 @@ a {
   overflow: hidden;
 }
 
-/* Gallery Title */
 .gallery h2 {
   text-align: center;
   font-size: 36px;
   margin-bottom: 20px;
-  color: #083A4B;
+  color: var(--heading-color);
 }
 
-/* Custom Grid Layout */
 .gallery-grid {
   display: grid;
   gap: 5px;
@@ -402,9 +432,8 @@ a {
   grid-template-columns: repeat(6, 1fr);
 }
 
-/* Image Styling */
 .child {
-  background: white;
+  background: var(--text-color);
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -416,7 +445,6 @@ a {
   transform: scale(1.05);
 }
 
-/* Assigning Areas */
 #one { grid-area: one; }
 #two { grid-area: two; }
 #three { grid-area: three; }
@@ -427,7 +455,6 @@ a {
 #eight { grid-area: eight; }
 #nine { grid-area: nine; }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
   .gallery-grid {
       grid-template-areas:
@@ -461,7 +488,7 @@ a {
 /* Contact Section */
 .contact {
   padding: 100px 50px;
-  background-color: #BFDDE8;
+  background-color: var(--accent-color);
   height: 90vh;
 }
 
@@ -469,7 +496,7 @@ a {
   text-align: center;
   font-size: 36px;
   margin-bottom: 40px;
-  color: #083A4B;
+  color: var(--heading-color);
 }
 
 #contact-form {
@@ -483,15 +510,15 @@ a {
 #contact-form input,
 #contact-form textarea {
   padding: 15px;
-  border: 1px solid #083A4B;
+  border: 1px solid var(--heading-color);
   border-radius: 5px;
   font-size: 16px;
 }
 
 #contact-form button {
   padding: 15px;
-  background-color: #1D84B5;
-  color: #FFFFFF;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   border: none;
   border-radius: 5px;
   font-size: 18px;
@@ -500,18 +527,229 @@ a {
 }
 
 #contact-form button:hover {
-  background-color: #083A4B;
+  background-color: var(--heading-color);
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 10px;
-  background-color: #083A4B;
-  color: #FFFFFF;
+  background-color: var(--heading-color);
+  color: var(--text-color);
 }
 
 section:not(#contact) {
-  padding-top: 120px; /* Add spacing */
-  margin-top: -8px;  /* Pull content back up */
+  padding-top: 120px;
+  margin-top: -8px;
+}
+
+.dropdown-toggle img{
+  filter: invert(1);
+}
+
+.dropdown-toggle.active img {
+  transform: rotate(90deg);
+}
+
+/* General Responsive Adjustments */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .navbar-title {
+    font-size: 20px;
+  }
+
+  .navbar-links {
+    gap: 15px;
+  }
+
+  .navbar-links a {
+    font-size: 14px;
+  }
+
+  /* Hero Section */
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .cta-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .social-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  /* About Section */
+  .about h2 {
+    font-size: 2rem;
+  }
+
+  .about-content {
+    font-size: 1rem;
+  }
+
+  /* Blog Section */
+  .blog h2 {
+    font-size: 28px;
+  }
+
+  .post {
+    flex: 0 0 300px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .post h3 {
+    font-size: 18px;
+  }
+
+  .post-back p {
+    font-size: 14px;
+  }
+
+  /* Gallery Section */
+  .gallery h2 {
+    font-size: 28px;
+  }
+
+  .gallery-grid {
+    grid-template-areas:
+      'one one two two'
+      'three three four four'
+      'five five six six'
+      'seven seven eight eight'
+      'nine nine nine nine';
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  /* Contact Section */
+  .contact h2 {
+    font-size: 28px;
+  }
+
+  #contact-form input,
+  #contact-form textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  #contact-form button {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Navbar */
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar-title {
+    font-size: 18px;
+  }
+
+  .navbar-links {
+    gap: 10px;
+  }
+
+  .navbar-links a {
+    font-size: 12px;
+  }
+
+  /* Hero Section */
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .cta-button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .social-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  /* About Section */
+  .about h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-content {
+    font-size: 0.9rem;
+  }
+
+  /* Blog Section */
+  .blog h2 {
+    font-size: 24px;
+  }
+
+  .post {
+    flex: 0 0 250px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .post h3 {
+    font-size: 16px;
+  }
+
+  .post-back p {
+    font-size: 12px;
+  }
+
+  /* Gallery Section */
+  .gallery h2 {
+    font-size: 24px;
+  }
+
+  .gallery-grid {
+    grid-template-areas:
+      'one'
+      'two'
+      'three'
+      'four'
+      'five'
+      'six'
+      'seven'
+      'eight'
+      'nine';
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 1fr);
+  }
+
+  /* Contact Section */
+  .contact h2 {
+    font-size: 24px;
+  }
+
+  #contact-form input,
+  #contact-form textarea {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  #contact-form button {
+    font-size: 14px;
+    padding: 8px;
+  }
 }
