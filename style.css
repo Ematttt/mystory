@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
 @import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
-:root {
+html[data-theme="default"] {
   --primary-color: #0A2E36;
   --secondary-color: #1D84B5;
   --accent-color: #BFDDE8;
